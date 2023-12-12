@@ -5,7 +5,7 @@ export function load(ctx) {
 
   <span golgi:appendTo="topbarTarget">
     <sbadmin-sidebar-toggle />
-    <sbadmin-brand text="Global Storage Viewer" />
+    <sbadmin-brand text="Global Storage Explorer" />
   </span>
 
   <sbadmin-footer-text golgi:appendTo="footerTarget">
@@ -13,14 +13,11 @@ export function load(ctx) {
   </sbadmin-footer-text>
 
   <sbadmin-sidebar-menu golgi:appendTo="sidebarTarget">
-    <sbadmin-sidebar-heading text="Global Storage Documents" />
+    <sbadmin-sidebar-heading text="Performance" />
+    <sbadmin-sidebar-menu-item iconName="watch" text="Benchmark" contentPage="benchmark" />
+    <sbadmin-sidebar-heading text="Global Storage Viewer" />
     <sbadmin-sidebar-nested-menu iconName="list" text="Directory" golgi:hook="getDirectory" />
   </sbadmin-sidebar-menu>
-
-
-  <sbadmin-sidebar-footer bgColor="#eeeeee" golgi:appendTo="sidebarTarget">
-    <sbadmin-footer-text text="Not Logged In" />
-  </sbadmin-sidebar-footer>
 
 </sbadmin-root>
   `;

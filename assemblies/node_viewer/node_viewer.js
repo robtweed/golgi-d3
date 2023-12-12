@@ -17,8 +17,6 @@ export function load() {
 </sbadmin-content-page>
   `;
 
-  let page;
-
   let hooks = {
     'sbadmin-content-page': {
       configure: async function() {
