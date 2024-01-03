@@ -38,25 +38,18 @@ export function load() {
                 }
 
                 let url = '/viewer/getChildNodes';
-                let options = {
-                  method: 'POST',
-                  headers: {
-                    'Content-type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    documentName: data.documentName,
-                    path: data.path,
-                    parentId: parentId,
-                    idCounter: _this.d3_root.topNode.idCounter,
-                    moreSiblings: moreSiblings,
-                    morePreviousSiblings: morePreviousSiblings,
-                    seed: seed,
-                    maxSubscripts: _this.d3_root.maxSubscripts
-                  })
+                let body = {
+                  documentName: data.documentName,
+                  path: data.path,
+                  parentId: parentId,
+                  idCounter: _this.d3_root.topNode.idCounter,
+                  moreSiblings: moreSiblings,
+                  morePreviousSiblings: morePreviousSiblings,
+                  seed: seed,
+                  maxSubscripts: _this.d3_root.maxSubscripts
                 };
 
-                let res = await fetch(url, options);
-                let json = await res.json();
+                let json = await this.context.request(url, 'post', body);
 
                 if (json.error) {
                   _this.context.toast.display(json.error);

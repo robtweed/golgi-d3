@@ -82,14 +82,7 @@ export function load() {
     'sbadmin-select': {
       populate: async function() {
         let url = '/viewer/globaldirectory';
-        let options = {
-          method: 'GET',
-          headers: {
-            'Content-type': 'application/json'
-          }
-        };
-        let res = await fetch(url, options);
-        let json = await res.json();
+        let json = await this.context.request(url);
         let arr = [];
         json.names.forEach((name) => {
           arr.push({value: name, text: name});
