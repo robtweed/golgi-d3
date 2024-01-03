@@ -49,7 +49,7 @@ export function load() {
                   maxSubscripts: _this.d3_root.maxSubscripts
                 };
 
-                let json = await this.context.request(url, 'post', body);
+                let json = await _this.context.request(url, 'post', body);
 
                 if (json.error) {
                   _this.context.toast.display(json.error);
